@@ -1,6 +1,8 @@
 const server = require('./server');
-require('dotenv').config();
+const { sequelize, models } = require('./src/models');
 
-server.listen(process.env.PORT, () => 
-  console.log('\nListening on port 3000\n')
-);
+sequelize.sync({ force: true }).then(() => {
+  server.listen(process.env.PORT, () =>
+    console.log('\nListening on port 3000\n')
+  );
+});

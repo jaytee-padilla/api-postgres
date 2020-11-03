@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
+require('dotenv').config(); // allows data in .env file to be accessed from anywhere via 'process.env'
+
 const server = express();
 
 server.use(cors());
